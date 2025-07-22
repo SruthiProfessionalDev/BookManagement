@@ -8,30 +8,24 @@ on:
 
 jobs:
   build-backend:
-    name: Build ASP.NET Backend
+    name: 🔧 Build ASP.NET Backend
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Setup .NET
+    - name: Setup .NET SDK
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
 
-    - name: Restore backend dependencies
-      run: dotnet restore BookApi.csproj
-      working-directory: ./Backend/BookApi
-
-
     - name: Build backend
-      run: dotnet build --no-restore BookApi.csproj
+      run: dotnet build BookApi.csproj
       working-directory: ./Backend/BookApi
-
 
   build-frontend:
-    name: Build Angular Frontend
+    name: 🌐 Build Angular Frontend
     runs-on: ubuntu-latest
     needs: build-backend
 
@@ -54,3 +48,4 @@ jobs:
     - name: Build frontend
       run: ng build --configuration production
       working-directory: ./Frontend
+
