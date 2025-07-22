@@ -48,9 +48,10 @@ jobs:
 
     - name: Install frontend dependencies
       run: npm install
-      working-directory: ./Frontend
+      working-directory: ./Frontend/Book-app
 
     - name: Build frontend
       run: ng build --configuration production
-      working-directory: ./Frontend
+      working-directory: ./Frontend/Book-app
+
 
