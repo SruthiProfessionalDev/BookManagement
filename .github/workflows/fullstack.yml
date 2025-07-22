@@ -20,9 +20,14 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
+    - name: Clean corrupted obj folder
+      run: rm -rf obj
+      working-directory: ./Backend/BookApi
+    
     - name: Build backend
       run: dotnet build BookApi.csproj
       working-directory: ./Backend/BookApi
+
 
   build-frontend:
     name: 🌐 Build Angular Frontend
