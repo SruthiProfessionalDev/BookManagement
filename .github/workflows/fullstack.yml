@@ -46,12 +46,6 @@ jobs:
     - name: Install Angular CLI
       run: npm install -g @angular/cli
 
-    - name: Install frontend dependencies
-      run: npm install
-      working-directory: ./Frontend/Book-app
-
-    - name: Build frontend
-      run: ng build --configuration production
-      working-directory: ./Frontend/Book-app
+ 
 
 
