@@ -18,16 +18,15 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'  # Adjust to your .NET version
+        dotnet-version: '8.0.x'
 
-    - name: Restore dependencies
-      run: dotnet restore ./Backend/YourProject.csproj
+    - name: Restore backend dependencies
+      run: dotnet restore BookManagement.csproj
+      working-directory: ./Backend
 
     - name: Build backend
-      run: dotnet build --no-restore ./Backend/YourProject.csproj
-
-    - name: Test backend (if you have tests)
-      run: dotnet test ./Backend/YourProject.Tests.csproj
+      run: dotnet build --no-restore BookManagement.csproj
+      working-directory: ./Backend
 
   build-frontend:
     name: 🌐 Build Angular Frontend
@@ -41,12 +40,12 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18'  # Use the Node version required by Angular
+        node-version: '18'
 
     - name: Install Angular CLI
       run: npm install -g @angular/cli
 
-    - name: Install dependencies
+    - name: Install frontend dependencies
       run: npm install
       working-directory: ./Frontend
 
