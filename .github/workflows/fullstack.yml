@@ -30,7 +30,7 @@ jobs:
 
 
   build-frontend:
-    name: 🌐 Build Angular Frontend
+    name: Build Angular Frontend
     runs-on: ubuntu-latest
     needs: build-backend
 
@@ -45,6 +45,8 @@ jobs:
 
     - name: Install Angular CLI
       run: npm install -g @angular/cli
+
+     - name: Build Angular Frontend
 
  
 
